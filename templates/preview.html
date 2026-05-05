@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Preview</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+    <div class="header">
+        Image Validation Preview
+    </div>
+
+    <div class="container container-wide">
+        <h2>Validation Results</h2>
+
+        <a href="/upload">← Back</a>
+
+        <table>
+            <tr>
+                <th>Row</th>
+                <th>Drawing</th>
+                <th>Status</th>
+            </tr>
+
+            {% for r in results %}
+            <tr>
+                <td>{{ r.row }}</td>
+                <td>{{ r.drawing }}</td>
+                <td>
+                    {% if r.found %}
+                    <span class="status-ok">✔ Found</span>
+                    {% else %}
+                    <span class="status-missing">✘ Missing</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+
+        {% if not has_missing %}
+        <form action="/generate" method="post">
+            <button type="submit">Generate PDFs</button>
+        </form>
+        {% else %}
+        <div class="error">Fix missing images before proceeding.</div>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
