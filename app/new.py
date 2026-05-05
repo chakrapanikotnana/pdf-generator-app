@@ -382,7 +382,7 @@ def get_top_table_paragraph_styles(styles):
         "TopTableData",
         parent=styles["Normal"],
         fontName=PDF_FONT_NAME,
-        fontSize=PRIMARY_HEADER_FONT_SIZE,
+        fontSize=PRIMARY_HEADER_FONT_SIZE-1,
         leading=PRIMARY_HEADER_FONT_SIZE + 1,
         alignment=TA_CENTER,
         wordWrap="CJK",
