@@ -12,6 +12,7 @@ from reportlab.platypus import (
 )
 import pandas as pd
 
+BASE_DIR = Path(__file__).resolve().parent.parent
 INPUT_DIR = Path("input")
 OUTPUT_DIR = Path("pdfs")
 EXCEL_FILE = INPUT_DIR / "data.xlsx"
@@ -19,6 +20,14 @@ IMAGE_FILE = INPUT_DIR / "Drawing1.png"
 PDF_FONT_NAME = "Roboto"
 PDF_FONT_FALLBACK = "Roboto"
 PDF_FONT_FAMILY = [
+    (
+        "Roboto",
+        [
+            BASE_DIR / "static" / "fonts" / "Roboto-Regular.ttf",
+            INPUT_DIR / "fonts" / "Roboto-Regular.ttf",
+            Path("Roboto-Regular.ttf"),
+        ],
+    ),
     (
         "ArialNarrow",
         [
